@@ -1,5 +1,25 @@
 import React from 'react';
-import './App.css';
+import {useNavigate} from "react-router-dom";
 
-export default class Login {
+function Login (toggleIsAuthenticated) {
+    const navigate = useNavigate();
+
+     function signIn(){
+         toggleIsAuthenticated (true);
+         navigate ('/');
+     }
+
+    return(
+        <section>
+            <h2> Login Pagina </h2>
+            <p> Druk op de kop om in te loggen!</p>
+            <button type="button" onClick={signIn}>
+                Inloggen
+            </button>
+        </section>
+
+
+    )
+
 }
+export default  Login;
