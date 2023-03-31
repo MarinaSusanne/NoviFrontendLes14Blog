@@ -1,12 +1,10 @@
 import React from 'react';
 import {useParams} from "react-router-dom";
 import { Link } from 'react-router-dom';
-import posts from '../data/posts.json';
-//mijn post kan ik niet ophalen
+import posts from '../../data/posts.json';
+
 
 function BlogPost(){
-
-    //ik snap deze niet helemaal! Wat gebeurt hier?
  const {blogId} = useParams();
  const currentPost = posts.find((post) => {
      return post.id === blogId;

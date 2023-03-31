@@ -1,12 +1,13 @@
 import React from 'react';
 import {useNavigate} from "react-router-dom";
 
-function Login (toggleIsAuthenticated) {
+function Login ({toggleIsAuthenticated}) {
     const navigate = useNavigate();
 
      function signIn(){
          toggleIsAuthenticated (true);
-         navigate ('/');
+         navigate ("/");
+
      }
 
     return(

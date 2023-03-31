@@ -9,21 +9,22 @@ import {Routes, Route, Navigate} from 'react-router-dom';
 
 
 function App() {
-  // We houden in de state bij of iemand is "ingelogd" (simpele versie)
     const [isAuthenticated, toggleIsAuthenticated] = useState(false);
 
   return (
-    //bij de navigatie moet nog wat, maar dat snap ik niet. isAuth={isAuthenticated} toggleAuth={toggleIsAuthenticated}
+
       <div>
 
-        <Navigation/>
+        <Navigation isAuthenticated={isAuthenticated} toggleIsAuthenticated={toggleIsAuthenticated}/>
         <Routes>
             <Route path="/" element={<Home />}/>
-            <Route path = "/login" element={<Login/>}/>
+            <Route path = "/login" element={<Login toggleIsAuthenticated={toggleIsAuthenticated}/>}/>
             <Route path = "/blogposts" element={isAuthenticated === true ? <BlogpostOverview/> : <Navigate to ="/Login"/>}/>
             <Route path ="/blogposts/:blogId" element={isAuthenticated ===true ? <BlogPost/> : <Navigate to="/Login"/>}/>
         </Routes>
+          {console.log(isAuthenticated)}
     </div>
+
   );
 }
 
